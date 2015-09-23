@@ -1,0 +1,2 @@
+# Canvas
+Global gamespace
