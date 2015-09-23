@@ -1,7 +1,8 @@
 //var firebase = new FirebaseConnector();
-var renderer = new Renderer();
-var router = new Router();
+var Renderer = require('./renderer')
+var Router = require('./router')
 
+var router = new Router()
 
 $(function() {
   $('#testSubmit').click(function(e) {
