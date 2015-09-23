@@ -1,0 +1,25 @@
+{
+  "name": "canvas",
+  "version": "1.0.0",
+  "description": "Global gamespace",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kahu-collabs/canvas"
+  },
+  "author": "Joshua Vial <joshua@enspiral.com> (http://joshuavial.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kahu-collabs/canvas/issues"
+  },
+  "homepage": "https://github.com/kahu-collabs/canvas",
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3",
+    "sinon": "^1.17.0",
+    "sinon-chai": "^2.8.0"
+  }
+}
