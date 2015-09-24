@@ -4,8 +4,8 @@
 //var firebase = new FirebaseConnector();
 var Renderer = require('./renderer')
 var Router = require('./router')
-
-var router = new Router()
+var renderer = new Renderer()
+var router = new Router(renderer)
 
 $(function() {
   $('#testSubmit').click(function(e) {
@@ -17,14 +17,24 @@ $(function() {
 
 },{"./renderer":3,"./router":4}],3:[function(require,module,exports){
 function Renderer() {
+
 }
 
+Renderer.prototype.play = function(sound) {
+  console.log('rendering ' + sound);
+}
+
+module.exports = Renderer
+
 },{}],4:[function(require,module,exports){
-function Router() {
+function Router(renderer) {
+  this.renderer = renderer
 }
 
 Router.prototype.route = function(command) {
-  console.log('routing ' + command)
+  // console.log('routing ' + command)
+
+  this.renderer.play('ding')
 }
 
 module.exports = Router
