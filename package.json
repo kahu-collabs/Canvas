@@ -23,6 +23,7 @@
     "sinon-chai": "^2.8.0"
   },
   "dependencies": {
-    "browserify": "^11.1.0"
+    "browserify": "^11.1.0",
+    "firebase": "^2.2.9"
   }
 }
