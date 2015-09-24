@@ -3,7 +3,11 @@ function Renderer() {
 }
 
 Renderer.prototype.play = function(sound) {
-  console.log('rendering ' + sound);
+  audio.play();
 }
+
+var audio = new Audio('assets/ding.mp3');
+
+
 
 module.exports = Renderer
