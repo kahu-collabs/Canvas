@@ -20,15 +20,21 @@ function Renderer() {
 
 }
 
-Renderer.prototype.play = function(sound) {
+Renderer.prototype.makeSound = function(sound) {
   audio.play();
+}
+
+Renderer.prototype.display = function(){
+  $("body").append("<div><img src='assets/potato.png'></div>")
 }
 
 var audio = new Audio('assets/ding.mp3');
 
 
 
+
 module.exports = Renderer
+
 
 },{}],4:[function(require,module,exports){
 function Router(renderer) {
@@ -39,8 +45,12 @@ Router.prototype.route = function(command) {
   // console.log('routing ' + command)
   var commandArray = command.split(' ')
   if(commandArray[0] == "play") {
-    this.renderer.play(commandArray[1])
-  } else {
+    this.renderer.makeSound(commandArray[1])
+  }
+  else if(commandArray[0] == "show"){
+    this.renderer.display()
+  }
+  else {
     console.log("I don't understand you");
   }
 }
