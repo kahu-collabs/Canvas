@@ -3,7 +3,7 @@ function Renderer() {
 }
 
 Renderer.prototype.play = function(sound) {
-  console.log('playing ' + sound);
+  audio.play();
 }
 
 Renderer.prototype.draw = function(image) {
@@ -22,6 +22,14 @@ Renderer.prototype.move = function(obj, direction, dist){
 	var	distance = parseInt(dist)
 	console.log('moving ' + obj + " " + direction + "wards by " + distance + "px")
 }
+
+Renderer.prototype.error = function(command) {
+    console.log("I don't understand: " + command)
+}
+
+var audio = new Audio('assets/ding.mp3');
+
+
 
 
 module.exports = Renderer
