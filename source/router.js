@@ -7,8 +7,11 @@ Router.prototype.route = function(command) {
   var commandArray = command.split(' ')
   if(commandArray[0] == "play") {
     this.renderer.play(commandArray[1])
+  }
+  else if(commandArray[0] == "draw"){
+   this.renderer.draw(commandArray[1])
   } else {
-    console.log("I don't understand you");
+    this.renderer.error(command)
   }
 }
 
