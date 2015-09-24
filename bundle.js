@@ -21,7 +21,11 @@ function Renderer() {
 }
 
 Renderer.prototype.play = function(sound) {
-  console.log('rendering ' + sound);
+  console.log('playing ' + sound);
+}
+
+Renderer.prototype.draw = function(image) {
+  console.log('drawing ' + image);
 }
 
 module.exports = Renderer
@@ -36,6 +40,9 @@ Router.prototype.route = function(command) {
   var commandArray = command.split(' ')
   if(commandArray[0] == "play") {
     this.renderer.play(commandArray[1])
+  }
+  else if(commandArray[0] == "draw"){
+   this.renderer.draw(commandArray[1])
   } else {
     console.log("I don't understand you");
   }
