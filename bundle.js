@@ -30,9 +30,6 @@ Renderer.prototype.display = function(){
 
 var audio = new Audio('assets/ding.mp3');
 
-
-
-
 module.exports = Renderer
 
 
@@ -45,12 +42,8 @@ Router.prototype.route = function(command) {
   // console.log('routing ' + command)
   var commandArray = command.split(' ')
   if(commandArray[0] == "play") {
-    this.renderer.makeSound(commandArray[1])
-  }
-  else if(commandArray[0] == "show"){
-    this.renderer.display()
-  }
-  else {
+    this.renderer.make_sound(commandArray[1])
+  } else {
     console.log("I don't understand you");
   }
 }
