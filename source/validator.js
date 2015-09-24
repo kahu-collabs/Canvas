@@ -7,9 +7,9 @@ Validator.prototype.audioValidator = function(soundUrl){
 	var fileExt = soundUrl.split(".").pop().toLowerCase()
 	
 	if ( fileExt == "mp3" || fileExt == "wav"){
-		alert("congratulations")
+		return true
 	}else{
-		alert("no congratulations")
+		return false
 	}
 }
 
@@ -17,15 +17,8 @@ Validator.prototype.imgValidator = function(imgUrl){
 	var imgExt = imgUrl.split(".").pop().toLowerCase()
 	
 	if ( imgExt == "jpg" || imgExt == "png"){
-		alert("congratulations")
+		return true
 	}else{
-		alert("no congratulations")
+		return false
 	}
 }
-
-// test = new Validator()
-// test.imgValidator("something.jpg")
-// test.imgValidator("something.jg")
-// test.imgValidator("something.PNG")
-// // test.audioValidator("http://soundjax.com/reddo/51012%5EDIALTONE.wav");
-// console.log(test);
