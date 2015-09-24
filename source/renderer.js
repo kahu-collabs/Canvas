@@ -10,6 +10,10 @@ Renderer.prototype.display = function(){
   $("body").append("<div><img src='assets/potato.png'></div>")
 }
 
+Renderer.prototype.hideImage = function(imageID){
+  $("#" + imageID).hide()
+}
+
 var audio = new Audio('assets/ding.mp3');
 
 

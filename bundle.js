@@ -28,6 +28,10 @@ Renderer.prototype.display = function(){
   $("body").append("<div><img src='assets/potato.png'></div>")
 }
 
+Renderer.prototype.hideImage = function(imageID){
+  $("#" + imageID).hide()
+}
+
 var audio = new Audio('assets/ding.mp3');
 
 
@@ -46,11 +50,8 @@ Router.prototype.route = function(command) {
   var commandArray = command.split(' ')
   if(commandArray[0] == "play") {
     this.renderer.makeSound(commandArray[1])
-  }
-  else if(commandArray[0] == "show"){
-    this.renderer.display()
-  }
-  else {
+  } else {
+    this.renderer.hideImage('testSubmit')
     console.log("I don't understand you");
   }
 }

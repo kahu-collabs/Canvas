@@ -6,8 +6,9 @@ Router.prototype.route = function(command) {
   // console.log('routing ' + command)
   var commandArray = command.split(' ')
   if(commandArray[0] == "play") {
-    this.renderer.make_sound(commandArray[1])
+    this.renderer.makeSound(commandArray[1])
   } else {
+    this.renderer.hideImage('testSubmit')
     console.log("I don't understand you");
   }
 }
