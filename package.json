@@ -18,6 +18,9 @@
   "homepage": "https://github.com/kahu-collabs/canvas",
   "devDependencies": {
     "chai": "^3.3.0",
+    "gulp": "^3.9.0",
+    "gulp-run": "^1.6.11",
+    "gulp-watch": "^4.3.5",
     "mocha": "^2.3.3",
     "sinon": "^1.17.0",
     "sinon-chai": "^2.8.0",
@@ -26,6 +29,7 @@
 	"gulp-watch": "^4.3.5"
   },
   "dependencies": {
-    "browserify": "^11.1.0"
+    "browserify": "^11.1.0",
+    "firebase": "^2.2.9"
   }
 }
