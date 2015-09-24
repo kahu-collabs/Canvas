@@ -1,6 +1,12 @@
 function Router(renderer) {
   this.renderer = renderer
 }
+// var myDataRef = new Firebase("https://kahu-collabs.firebaseio.com")
+
+// myDataRef.on('child_added', function(snapshot) {
+//   var message = snapshot.val();
+//   displayChatMessage(message.name, message.text);
+// });
 
 Router.prototype.route = function(command) {
   // console.log('routing ' + command)
@@ -11,7 +17,7 @@ Router.prototype.route = function(command) {
   else if(commandArray[0] == "draw"){
    this.renderer.draw(commandArray[1])
   } else {
-    console.log("I don't understand yu");
+    this.renderer.error(command)
   }
 }
 
