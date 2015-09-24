@@ -304,7 +304,6 @@ Renderer.prototype.draw = function(image) {
 
 Renderer.prototype.error = function(command) {
     console.log("I don't understand: " + command)
-
 }
 
 var audio = new Audio('assets/ding.mp3');
