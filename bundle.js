@@ -28,6 +28,19 @@ Renderer.prototype.draw = function(image) {
   console.log('drawing ' + image);
 }
 
+Renderer.prototype.show = function(image){
+	console.log('showing ' + image)
+}
+
+Renderer.prototype.hide = function(obj){
+	console.log('hiding ' + obj)
+}
+
+Renderer.prototype.move = function(obj, direction, dist){
+	console.log('moving ' + obj + " " + direction + "wards by " + dist + "px")
+}
+
+
 module.exports = Renderer
 
 },{}],4:[function(require,module,exports){
@@ -43,7 +56,17 @@ Router.prototype.route = function(command) {
   }
   else if(commandArray[0] == "draw"){
    this.renderer.draw(commandArray[1])
-  } else {
+  } 
+  else if(commandArray[0] == "show"){
+    this.renderer.show(commandArray[1])
+  }
+  else if(commandArray[0] == "hide"){
+    this.renderer.hide(commandArray[1])
+  }
+  else if(commandArray[0] == "move"){
+    this.renderer.move(commandArray[1], commandArray[2], commandArray[3])
+  }
+  else {
     console.log("I don't understand you");
   }
 }
