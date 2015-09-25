@@ -17,8 +17,12 @@ Renderer.prototype.makeSound = function(sound) {
 
 Renderer.prototype.draw = function(image) {
   x++
+  var top = getRandomArbitrary(0, 100)
+  console.log(top)
+  var left = getRandomArbitrary(0, 100)
+  console.log(left)
   if(validator.imgValidator(image)){
-     $("body").append("<div class='hello' id=" + x + "><img src=" + image + "><div>");
+     $("body").append("<div class='hello' id=" + x + " style='top:" + top + "%; left:"+ left +"%'><img src=" + image + "><div>");
     }
 }
 
@@ -34,13 +38,17 @@ Renderer.prototype.move = function(id, direction, dist){
 	var	distance = parseInt(dist)
   console.log(distance);
   var thing = document.getElementById(id)
-  $(thing).css();
+  $(thing).css("left", "90px");
 
 	console.log('moving ' + id + " " + direction + "wards by " + distance + "px")
 }
 
 Renderer.prototype.error = function(command) {
     console.log("I don't understand: " + command)
+}
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
 }
 
 module.exports = Renderer
