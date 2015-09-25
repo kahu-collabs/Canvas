@@ -3,10 +3,9 @@ function Router(renderer) {
 }
 
 Router.prototype.route = function(command) {
-  // console.log('routing ' + command)
+  console.log('routing ' + command)
   var commandArray = command.split(' ')
   if(commandArray[0] == "play") {
-
     this.renderer.makeSound(commandArray[1])
   }
   else if(commandArray[0] == "draw"){

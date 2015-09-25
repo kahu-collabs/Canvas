@@ -8,7 +8,7 @@ Renderer.prototype.makeSound = function(sound) {
 }
 
 Renderer.prototype.draw = function(image) {
-  console.log('drawing ' + image);
+  $("body").append("<div><img src=" + image + "><div>");
 }
 
 Renderer.prototype.show = function(image){
