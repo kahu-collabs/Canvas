@@ -3,7 +3,7 @@ function Renderer() {
 }
 
 Renderer.prototype.makeSound = function(sound) {
-  audio = new Audio(sound);
+  var audio = new Audio(sound);
   audio.play();
 }
 
@@ -27,8 +27,6 @@ Renderer.prototype.move = function(obj, direction, dist){
 Renderer.prototype.error = function(command) {
     console.log("I don't understand: " + command)
 }
-
-var audio = new Audio('assets/ding.mp3');
 
 module.exports = Renderer
 
