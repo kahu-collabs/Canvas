@@ -15,6 +15,11 @@ Renderer.prototype.makeSound = function(sound) {
   }
 }
 
+
+Renderer.prototype.hideImage = function(imageID){
+  $("#" + imageID).hide()
+}
+
 Renderer.prototype.draw = function(image) {
   x++
   var top = getRandomArbitrary(0, 100)
