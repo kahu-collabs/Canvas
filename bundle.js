@@ -297,8 +297,13 @@ function Renderer() {
 }
 
 Renderer.prototype.makeSound = function(sound) {
-  audio = new Audio(sound);
+  var audio = new Audio(sound);
   audio.play();
+}
+
+
+Renderer.prototype.hideImage = function(imageID){
+  $("#" + imageID).hide()
 }
 
 Renderer.prototype.draw = function(image) {
@@ -321,8 +326,6 @@ Renderer.prototype.move = function(obj, direction, dist){
 Renderer.prototype.error = function(command) {
     console.log("I don't understand: " + command)
 }
-
-var audio = new Audio('assets/ding.mp3');
 
 module.exports = Renderer
 
@@ -357,4 +360,30 @@ Router.prototype.route = function(command) {
 
 module.exports = Router
 
-},{}]},{},[2,3,4,5]);
+},{}],6:[function(require,module,exports){
+function Validator(){
+
+}
+
+
+Validator.prototype.audioValidator = function(soundUrl){
+	var fileExt = soundUrl.split(".").pop().toLowerCase()
+	
+	if ( fileExt == "mp3" || fileExt == "wav"){
+		return true
+	}else{
+		return false
+	}
+}
+
+Validator.prototype.imgValidator = function(imgUrl){
+	var imgExt = imgUrl.split(".").pop().toLowerCase()
+	
+	if ( imgExt == "jpg" || imgExt == "png"){
+		return true
+	}else{
+		return false
+	}
+}
+
+},{}]},{},[2,3,4,5,6]);

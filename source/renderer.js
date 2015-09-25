@@ -7,6 +7,11 @@ Renderer.prototype.makeSound = function(sound) {
   audio.play();
 }
 
+
+Renderer.prototype.hideImage = function(imageID){
+  $("#" + imageID).hide()
+}
+
 Renderer.prototype.draw = function(image) {
   $("body").append("<div><img src=" + image + "><div>");
 }
