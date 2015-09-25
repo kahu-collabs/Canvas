@@ -1,8 +1,10 @@
 var Renderer = require('./renderer')
 var Router = require('./router')
+
 var renderer = new Renderer()
 var router = new Router(renderer)
 var Firebase = require("firebase")
+
 
 $(function() {
   $('#testSubmit').click(function(e) {

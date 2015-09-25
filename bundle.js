@@ -274,9 +274,11 @@ module.exports = Firebase;
 },{}],3:[function(require,module,exports){
 var Renderer = require('./renderer')
 var Router = require('./router')
+
 var renderer = new Renderer()
 var router = new Router(renderer)
 var Firebase = require("firebase")
+
 
 $(function() {
   $('#testSubmit').click(function(e) {
@@ -292,17 +294,28 @@ firebase.on('child_added', function(snapshot) {
 });
 
 },{"./renderer":4,"./router":5,"firebase":1}],4:[function(require,module,exports){
+var Validator = require('./validator')
+
+var validator = new Validator();
+
+var x = 1
+
 function Renderer() {
 
 }
 
 Renderer.prototype.makeSound = function(sound) {
-  audio = new Audio(sound);
+  if(validator.audioValidator(sound)){
+    var audio = new Audio(sound);
   audio.play();
+  }
 }
 
 Renderer.prototype.draw = function(image) {
-  $("body").append("<div><img src=" + image + "><div>");
+  x++
+  if(validator.imgValidator(image)){
+     $("body").append("<div class='hello' id=" + x + "><img src=" + image + "><div>");
+    }
 }
 
 Renderer.prototype.show = function(image){
@@ -313,21 +326,23 @@ Renderer.prototype.hide = function(obj){
 	console.log('hiding ' + obj)
 }
 
-Renderer.prototype.move = function(obj, direction, dist){
+Renderer.prototype.move = function(id, direction, dist){
 	var	distance = parseInt(dist)
-	console.log('moving ' + obj + " " + direction + "wards by " + distance + "px")
+  console.log(distance);
+  var thing = document.getElementById(id)
+  $(thing).css("display","none");
+
+	console.log('moving ' + id + " " + direction + "wards by " + distance + "px")
 }
 
 Renderer.prototype.error = function(command) {
     console.log("I don't understand: " + command)
 }
 
-var audio = new Audio('assets/ding.mp3');
-
 module.exports = Renderer
 
 
-},{}],5:[function(require,module,exports){
+},{"./validator":6}],5:[function(require,module,exports){
 function Router(renderer) {
   this.renderer = renderer
 }
@@ -357,4 +372,33 @@ Router.prototype.route = function(command) {
 
 module.exports = Router
 
-},{}]},{},[2,3,4,5]);
+},{}],6:[function(require,module,exports){
+function Validator(){
+
+}
+
+
+Validator.prototype.audioValidator = function(soundUrl){
+	var fileExt = soundUrl.split(".").pop().toLowerCase()
+
+	if ( fileExt == "mp3" || fileExt == "wav"){
+		return true
+	}else{
+		return false
+	}
+}
+
+Validator.prototype.imgValidator = function(imgUrl){
+	var imgExt = imgUrl.split(".").pop().toLowerCase()
+
+	if ( imgExt == "jpg" || imgExt == "png"){
+		return true
+	}else{
+		return false
+	}
+}
+
+module.exports = Validator
+
+
+},{}]},{},[2,3,4,5,6]);
